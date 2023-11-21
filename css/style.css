@@ -19,6 +19,7 @@ body {
 
 .my-profile-container{
     background-color: #eaeaea;
+    border: 1px solid #d8d8d8;
 }
 
 .my-img-box img{
@@ -51,11 +52,16 @@ body {
     background-color: white;
 }
 
+.my-chatheader-container{
+    background-color: #eaeaea;
+    border: 1px solid #d8d8d8;
+}
+
 
 /*utilities*/
 
 .my-fs2{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .my-fs1{
