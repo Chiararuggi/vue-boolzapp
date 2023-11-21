@@ -1,0 +1,62 @@
+html{
+    height: 100%;
+}
+
+body {
+  background: rgb(214, 219, 216);
+  background: linear-gradient(
+    0deg,
+    rgba(214, 219, 216, 1) 75%,
+    rgba(0, 150, 136, 1) 75%
+  );
+  height: 100%;
+}
+
+.my-profile-container{
+    background-color: #eaeaea;
+}
+
+.my-img-box img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50px;
+}
+
+.my-notifications-container{
+    background-color: #8edafc;
+}
+
+.bell-container{
+    background-color: white;
+    padding:0.8rem;
+    border-radius: 100%;
+}
+
+.notification-p{
+    text-decoration: underline;
+    font-size: 1rem;
+    color:  rgb(160, 160, 160);
+}
+
+.my-searchbar-container{
+    background-color: #eaeaea;
+}
+
+
+/*utilities*/
+
+.my-fs2{
+    font-size: 1.5rem;
+}
+
+.my-c-grey{
+    color: rgb(160, 160, 160);
+}
+
+.my-c-lightblue{
+    color: #8edafc;
+}
+
+.my-mr1{
+    margin-right: 1rem;
+}

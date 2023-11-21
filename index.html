@@ -24,7 +24,72 @@
     <script src="https://unpkg.com/vue@3.3.8/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <!--chat container-->
+          <div class="col-12 my-3">
+            <div class="row">
+              <!--contact preview-->
+              <div class="col-4">
+                <!--profile-->
+                <div class="col-12">
+                  <div
+                    class="my-profile-container d-flex align-items-center justify-content-between py-1"
+                  >
+                    <div class="my-img-box d-flex align-items-center">
+                      <img src="./img/avatar_io.jpg" class="img-fluid mx-1" />
+                      <h4 class="mx-2">Sofia</h4>
+                    </div>
+                    <div class="my-button-container d-flex align-items-center">
+                      <i class="fas fa-spinner my-fs2 my-c-grey"></i>
+                      <i class="fas fa-message mx-3 my-fs2 my-c-grey"></i>
+                      <i
+                        class="fa-solid fa-ellipsis-vertical my-fs2 my-c-grey my-mr1"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <!--notifications-->
+                <div class="col-12">
+                  <div
+                    class="my-notifications-container d-flex align-items-center py-3"
+                  >
+                    <div class="bell-container mx-2">
+                      <i
+                        class="fa-solid fa-bell-slash my-fs2 my-c-lightblue"
+                      ></i>
+                    </div>
+                    <div class="col">
+                      <h6>Ricevi notifiche di nuovi messaggi</h6>
+                      <p class="notification-p">Attiva notifiche desktop</p>
+                    </div>
+                  </div>
+                </div>
+                <!--search bar-->
+                <div class="col-12">
+                  <div class="my-searchbar-container">
+                    <div class="input-group mb-3 p-1">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass my-c-grey"></i></span>
+                      <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="findChat" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                </div>
+                <!--contacts-->
+                <div class="col-12 overflow-auto"></div>
+              </div>
+              <!--chat-->
+              <div class="col-8">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Debitis vero quidem numquam rerum, quas perferendis accusamus
+                nesciunt dicta ullam eum quia qui voluptas quasi ducimus,
+                obcaecati nobis recusandae molestias architecto.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--js-->
     <script src="./js/main.js"></script>
   </body>
