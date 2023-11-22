@@ -72,6 +72,7 @@
                         type="text"
                         class="form-control"
                         placeholder="Cerca o inizia una nuova chat"
+                        id=""
                         aria-label="findChat"
                         aria-describedby="basic-addon1"
                       />
@@ -79,10 +80,10 @@
                   </div>
                 <!--contacts-->
                   <div class="my-contact-container overflow-auto">
-                    <div class="my-img-box d-flex align-items-center py-1">
-                      <img src="./img/avatar_1.jpg" class="mx-1" />
+                    <div v-for="(contact,i) in contacts" class="my-img-box d-flex align-items-center py-1">
+                      <img :src="contacts[i].avatar" class="mx-1" />
                       <div class="my-text-container d-flex flex-column px-2">
-                        <p class="my-bold-text m-0">Michele</p>
+                        <p class="my-bold-text m-0">{{contacts[i].name}}</p>
                         <p class="my-fs1 my-c-grey m-0">Ultimo messaggio inviato</p>
                       </div>
                       <div class="my-time my-ml9">
