@@ -74,6 +74,27 @@ body {
     width: 45rem;
 }
 
+.my-received{
+    padding: 0.5rem;
+    background-color: rgb(174, 248, 174);
+    width: fit-content;
+    border-radius: 60px;
+    display: flex;
+    align-self: flex-start;
+    margin: 1rem;
+}
+
+
+.my-sent{
+    padding: 0.5rem;
+    background-color: rgb(202, 202, 202);
+    width: fit-content;
+    border-radius: 60px;
+    display: flex;
+    align-self: flex-end;
+    margin: 1rem;
+}
+
 
 /*utilities*/
 

@@ -12,17 +12,17 @@ createApp({
             {
               date: "10/01/2020 15:30:55",
               message: "Hai portato a spasso il cane?",
-              status: "sent",
+              status: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Ricordati di stendere i panni",
-              status: "sent",
+              status: false,
             },
             {
               date: "10/01/2020 16:15:22",
               message: "Tutto fatto!",
-              status: "received",
+              status: true,
             },
           ],
         },
@@ -166,9 +166,14 @@ createApp({
           ],
         },
       ],
-      index: 0,
+      activeChat: 0,
     };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    showChat(i){
+      this.activeChat = i;
+    },
+  },
+  mounted() {
+  },
 }).mount("#app");

@@ -80,7 +80,7 @@
                   </div>
                 <!--contacts-->
                   <div class="my-contact-container overflow-auto">
-                    <div v-for="(contact,i) in contacts" class="my-img-box d-flex align-items-center py-1">
+                    <div v-for="(contact,i) in contacts" class="my-img-box d-flex align-items-center py-1" @click="showChat(i)">
                       <img :src="contacts[i].avatar" class="mx-1" />
                       <div class="my-text-container d-flex flex-column px-2">
                         <p class="my-bold-text m-0">{{contacts[i].name}}</p>
@@ -117,8 +117,10 @@
                   </div>
                 </div>
                 <!--chat box-->
-                <div class="my-chatbox-container">
-                  
+                <div class="my-chatbox-container d-flex flex-column">
+                  <p v-for="message in this.contacts[this.activeChat].messages" class="my-received">
+                    {{message.message}}
+                    {{message.date}}</p>
                 </div>
                 <!--chat footer-->
                 <div class="my-chatfooter-container">
