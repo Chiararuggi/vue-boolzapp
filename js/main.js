@@ -176,8 +176,15 @@ createApp({
     },
 
     addNewMessage(){
-      console.log(this.userInput);
       this.contacts[this.activeChat].messages.push({message: this.userInput});
+      this.sendMessageAfterDelay();
+    },
+
+    sendMessageAfterDelay(){
+      console.log(this.contacts[this.activeChat]);
+      setTimeout(function () {
+        console.log(this.contacts[this.activeChat]);
+     }, 1000);
     }
   },
   mounted() {
