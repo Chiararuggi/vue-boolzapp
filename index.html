@@ -33,65 +33,77 @@
               <!--contact preview-->
               <div class="col-4">
                 <!--profile-->
-                  <div
-                    class="my-profile-container d-flex align-items-center justify-content-between py-1"
-                  >
-                    <div class="my-img-box d-flex align-items-center">
-                      <img src="./img/avatar_io.jpg" class="img-fluid mx-1" />
-                      <p class="my-bold-text mx-2">Sofia</p>
-                    </div>
-                    <div class="my-button-container d-flex align-items-center">
-                      <i class="fas fa-spinner my-fs2 my-c-grey"></i>
-                      <i class="fas fa-message mx-3 my-fs2 my-c-grey"></i>
-                      <i
-                        class="fa-solid fa-ellipsis-vertical my-fs2 my-c-grey my-mr1"
-                      ></i>
-                    </div>
+                <div
+                  class="my-profile-container d-flex align-items-center justify-content-between py-1"
+                >
+                  <div class="my-img-box d-flex align-items-center">
+                    <img src="./img/avatar_io.jpg" class="img-fluid mx-1" />
+                    <p class="my-bold-text mx-2">Sofia</p>
                   </div>
+                  <div class="my-button-container d-flex align-items-center">
+                    <i class="fas fa-spinner my-fs2 my-c-grey"></i>
+                    <i class="fas fa-message mx-3 my-fs2 my-c-grey"></i>
+                    <i
+                      class="fa-solid fa-ellipsis-vertical my-fs2 my-c-grey my-mr1"
+                    ></i>
+                  </div>
+                </div>
                 <!--notifications-->
-                  <div
-                    class="my-notifications-container d-flex align-items-center py-2"
-                  >
-                    <div class="bell-container mx-2">
-                      <i
-                        class="fa-solid fa-bell-slash my-fs2 my-c-lightblue"
-                      ></i>
-                    </div>
-                    <div class="col">
-                      <p class="my-bold-text m-0">Ricevi notifiche di nuovi messaggi</p>
-                      <p class="notification-p my-fs1 m-0">Attiva notifiche desktop</p>
-                    </div>
+                <div
+                  class="my-notifications-container d-flex align-items-center py-2"
+                >
+                  <div class="bell-container mx-2">
+                    <i class="fa-solid fa-bell-slash my-fs2 my-c-lightblue"></i>
                   </div>
+                  <div class="col">
+                    <p class="my-bold-text m-0">
+                      Ricevi notifiche di nuovi messaggi
+                    </p>
+                    <p class="notification-p my-fs1 m-0">
+                      Attiva notifiche desktop
+                    </p>
+                  </div>
+                </div>
                 <!--search bar-->
-                  <div class="my-searchbar-container">
-                    <div class="input-group p-1">
-                      <span class="input-group-text" id="basic-addon1"
-                        ><i class="fa-solid fa-magnifying-glass my-c-grey"></i
-                      ></span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Cerca o inizia una nuova chat"
-                        id=""
-                        aria-label="findChat"
-                        aria-describedby="basic-addon1"
-                      />
-                    </div>
+                <div class="my-searchbar-container">
+                  <div class="input-group p-1">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i class="fa-solid fa-magnifying-glass my-c-grey"></i
+                    ></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Cerca o inizia una nuova chat"
+                      v-model="searchUserInput"
+                      @keyup.enter="searchChat()"
+                      aria-label="findChat"
+                      aria-describedby="basic-addon1"
+                    />
                   </div>
+                </div>
                 <!--contacts-->
-                  <div class="my-contact-container overflow-auto">
-                    <div v-for="(contact,i) in contacts" class="my-img-box d-flex align-items-center py-1" @click="showChat(i)">
-                      <img :src="contacts[i].avatar" class="mx-1" />
-                      <div class="my-text-container d-flex flex-column px-2">
-                        <p class="my-bold-text m-0">{{contacts[i].name}}</p>
-                        <p class="my-fs1 my-c-grey m-0">Ultimo messaggio inviato</p>
-                      </div>
-                      <div class="my-time my-ml9">
-                        <p class="my-fs1 my-c-grey">12.00</p>
-                      </div>
-                      <hr />
+                <div class="my-contact-container overflow-auto">
+                  <div
+                    v-for="(contact,i) in contacts"
+                    
+                    @click="showChat(i)"
+                  >
+                  <div v-if="contacts[i].visible == true" class="my-img-box d-flex align-items-center py-1">
+                    <img :src="contacts[i].avatar" class="mx-1" />
+                    <div class="my-text-container d-flex flex-column px-2">
+                      <p class="my-bold-text m-0">{{contacts[i].name}}</p>
+                      <p class="my-fs1 my-c-grey m-0">
+                        Ultimo messaggio inviato
+                      </p>
                     </div>
+                    <div class="my-time my-ml9">
+                      <p class="my-fs1 my-c-grey">12.00</p>
+                    </div>
+                    <hr />
                   </div>
+
+                  </div>
+                </div>
               </div>
               <!--chat-->
               <div class="col-8">
@@ -100,9 +112,14 @@
                   class="my-chatheader-container d-flex align-items-center justify-content-between py-1"
                 >
                   <div class="my-img-box d-flex align-items-center">
-                    <img :src="contacts[this.activeChat].avatar" class="img-fluid mx-1" />
+                    <img
+                      :src="contacts[this.activeChat].avatar"
+                      class="img-fluid mx-1"
+                    />
                     <div class="d-flex flex-column px-2">
-                      <p class="my-bold-text m-0">{{contacts[this.activeChat].name}}</p>
+                      <p class="my-bold-text m-0">
+                        {{contacts[this.activeChat].name}}
+                      </p>
                       <p class="my-fs1 my-c-grey m-0">
                         Ultimo accesso oggi alle 12.00
                       </p>
@@ -118,21 +135,40 @@
                 </div>
                 <!--chat box-->
                 <div class="my-chatbox-container d-flex flex-column">
-                  <p v-for="message in this.contacts[this.activeChat].messages" class="my-received">
-                    {{message.message}}
-                    {{message.date}}</p>
+                  <p
+                    v-for="message in this.contacts[this.activeChat].messages"
+                    class="my-received"
+                  >
+                    {{message.message}} {{message.date}}
+                  </p>
                 </div>
                 <!--chat footer-->
                 <div class="my-chatfooter-container">
-                  <div class="d-flex h-100 justify-content-between align-items-center">
-                    <div class="my-emote-box d-flex justify-content-center mx-5">
-                      <i class="fa-regular fa-face-smile my-fs2 my-c-darkgrey"></i>
+                  <div
+                    class="d-flex h-100 justify-content-between align-items-center"
+                  >
+                    <div
+                      class="my-emote-box d-flex justify-content-center mx-5"
+                    >
+                      <i
+                        class="fa-regular fa-face-smile my-fs2 my-c-darkgrey"
+                      ></i>
                     </div>
                     <div class="my-input-box d-flex justify-content-center">
-                      <input type="text" class="form-control" v-model="userInput" @keyup.enter="addNewMessage()" placeholder="Scrivi un messaggio">
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="userInput"
+                        @keyup.enter="addNewMessage()"
+                        placeholder="Scrivi un messaggio"
+                      />
                     </div>
-                    <div class="my-vocal-button d-flex justify-content-center mx-5">
-                      <i class="fa-solid fa-microphone my-fs2 my-c-darkgrey"></i>
+                    <div
+                      class="my-vocal-button d-flex justify-content-center mx-5"
+                    >
+                      <i
+                        class="fa-solid fa-microphone my-fs2 my-c-darkgrey"
+                      ></i>
                     </div>
                   </div>
                 </div>

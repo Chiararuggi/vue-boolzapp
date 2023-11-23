@@ -167,26 +167,36 @@ createApp({
         },
       ],
       activeChat: 0,
-      userInput: '',
+      userInput: "",
+      searchUserInput: "",
     };
   },
   methods: {
-    showChat(i){
+    showChat(i) {
       this.activeChat = i;
     },
 
-    addNewMessage(){
-      this.contacts[this.activeChat].messages.push({message: this.userInput});
+    addNewMessage() {
+      this.contacts[this.activeChat].messages.push({ message: this.userInput });
       this.sendMessageAfterDelay();
     },
 
-    sendMessageAfterDelay(){
+    sendMessageAfterDelay() {
       console.log(this.contacts[this.activeChat]);
       setTimeout(() => {
-        this.contacts[this.activeChat].messages.push({message: "ok"});
-    }, 1000);
-    }
+        this.contacts[this.activeChat].messages.push({ message: "ok" });
+      }, 1000);
+    },
+
+    searchChat() {
+        for (let i = 0; i < this.contacts.length; i++) {
+          if (!(this.contacts[i].name.toLowerCase().includes(this.searchUserInput.toLowerCase()))) {
+            this.contacts[i].visible = false;
+          }
+        }
+      
+
+    },
   },
-  mounted() {
-  },
+  mounted() {},
 }).mount("#app");
