@@ -167,12 +167,18 @@ createApp({
         },
       ],
       activeChat: 0,
+      userInput: '',
     };
   },
   methods: {
     showChat(i){
       this.activeChat = i;
     },
+
+    addNewMessage(){
+      console.log(this.userInput);
+      this.contacts[this.activeChat].messages.push({message: this.userInput});
+    }
   },
   mounted() {
   },
