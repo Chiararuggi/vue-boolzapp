@@ -137,9 +137,9 @@
                 <div class="my-chatbox-container d-flex flex-column">
                   <p
                     v-for="message in this.contacts[this.activeChat].messages"
-                    class="my-received"
-                  >
-                    {{message.message}} {{message.date}}
+                    :class="message.status ? 'my-received' : 'my-sent' "
+                    >
+                    {{message.message}}  {{message.date}}
                   </p>
                 </div>
                 <!--chat footer-->
