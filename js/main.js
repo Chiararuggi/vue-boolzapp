@@ -182,9 +182,9 @@ createApp({
 
     sendMessageAfterDelay(){
       console.log(this.contacts[this.activeChat]);
-      setTimeout(function () {
-        console.log(this.contacts[this.activeChat]);
-     }, 1000);
+      setTimeout(() => {
+        this.contacts[this.activeChat].messages.push({message: "ok"});
+    }, 1000);
     }
   },
   mounted() {
