@@ -100,9 +100,9 @@
                   class="my-chatheader-container d-flex align-items-center justify-content-between py-1"
                 >
                   <div class="my-img-box d-flex align-items-center">
-                    <img src="./img/avatar_1.jpg" class="img-fluid mx-1" />
+                    <img :src="contacts[this.activeChat].avatar" class="img-fluid mx-1" />
                     <div class="d-flex flex-column px-2">
-                      <p class="my-bold-text m-0">Michele</p>
+                      <p class="my-bold-text m-0">{{contacts[this.activeChat].name}}</p>
                       <p class="my-fs1 my-c-grey m-0">
                         Ultimo accesso oggi alle 12.00
                       </p>
